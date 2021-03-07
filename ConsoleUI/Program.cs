@@ -1,6 +1,7 @@
 ﻿using Business.Concrete;
 using Entities.Concrete;
 using System;
+using Core.Entities.Concrete;
 using DataAccess.Concrete.EntityFramework;
 
 namespace ConsoleUI
@@ -9,9 +10,9 @@ namespace ConsoleUI
     {
         private static void Main(string[] args)
         {
-            CarManager carManager = new CarManager(new EfCarDal());
+            //CarManager carManager = new CarManager(new EfCarDal());
 
-            CarsDetailsList(carManager);
+            //CarsDetailsList(carManager);
             ////CarAdd(carManager);
             ////CarUpdate(carManager);
             ////CarDelete(carManager);
@@ -35,7 +36,64 @@ namespace ConsoleUI
             ////ColorDelete(colorManager);
             //ColorsList(colorManager);
             //ColorGetById(colorManager);
+
+
+            //UserManager userManager = new UserManager(new EfUserDal());
+            //UserAdd(userManager);
+
+            //CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+            //CustomerAdd(customerManager);
+
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+            RentalAdd(rentalManager);
         }
+
+
+        private static void CustomerAdd(CustomerManager customerManager)
+        {
+            Console.WriteLine("......   Müşteri Ekle     ......");
+            Customer customer = new Customer();
+            customer.UserId = 1;
+            customer.CompanyName = "SAYGIN";
+
+            var result = customerManager.Add(customer);
+            if (result.Success)
+            {
+                Console.WriteLine(result.Message);
+            }
+        }
+
+        private static void RentalAdd(RentalManager rentalManager)
+        {
+            Console.WriteLine("......   Araç Kiralama Ekle     ......");
+            Rental rental = new Rental();
+            rental.CarId = 1;
+            rental.CustomerId = 1;
+
+            var result = rentalManager.Add(rental);
+            Console.WriteLine(result.Message);
+           
+        }
+
+        #region User
+
+        private static void UserAdd(UserManager userManager)
+        {
+            Console.WriteLine("......   Kullanıcı Ekle     ......");
+            User user = new User();
+            user.FirstName = "Kağan";
+            user.LastName = "Saygın";
+            user.Email = "kagansaygin@gmail.com";
+            //user.Password = "123456";
+
+            var result = userManager.Add(user);
+            if (result.Success)
+            {
+                Console.WriteLine(result.Message);
+            }
+        }
+
+        #endregion
 
         #region Colors
 
