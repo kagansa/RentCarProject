@@ -5,6 +5,7 @@ using Core.Utilities.Results.Abstract;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using System.Collections.Generic;
+using Entities.DTOs;
 
 namespace Business.Concrete
 {
@@ -20,6 +21,11 @@ namespace Business.Concrete
         public IDataResult<List<Car>> GetAll()
         {
             return new SuccessDataResult<List<Car>>(_CarDal.GetAll(), Messages.CarListed);
+        }
+
+        public IDataResult<List<CarDetailDto>> GetDetailsAll()
+        {
+            return new SuccessDataResult<List<CarDetailDto>>(_CarDal.GetCarDetails(), Messages.CarListed);
         }
 
         public IDataResult<Car> GetById(int Id)
@@ -39,6 +45,11 @@ namespace Business.Concrete
 
         public IResult Add(Car car)
         {
+            if (car.Description.Length > 2 && car.DailyPrice > 0)
+            {
+                return new ErrorResult();
+            }
+
             _CarDal.Add(car);
             return new SuccessResult(Messages.CarAdded);
         }

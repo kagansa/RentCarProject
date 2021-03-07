@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class ReCarContext : DbContext
+    public class RentCarContext : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -11,5 +11,7 @@ namespace DataAccess.Concrete.EntityFramework
         }
 
         public DbSet<Car> Cars { get; set; }
+        public DbSet<Color> Colors { get; set; }
+        public DbSet<Brand> Brands { get; set; }
     }
 }
