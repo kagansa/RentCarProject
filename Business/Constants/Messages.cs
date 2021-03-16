@@ -33,7 +33,6 @@
         public static string RentalDeleted = "Kira Silindi.";
         public static string RentalNotDelivered = "Araç kiralanamaz teslim edilmemiş.";
 
-
         public static string AuthorizationDenied = "Yetkiniz Yok.";
         public static string UserRegistered = "Kayıt Başarılı.";
         public static string UserNotFound = "Kullanıcı Bulunamadı.";
@@ -42,5 +41,10 @@
         public static string UserAlreadyExists = "Kullanıcı Mevcut.";
         public static string AccessTokenCreated = "Token Oluşturuldu.";
 
+        public static string CarImageListed = "Resimler Listelendi.";
+        public static string CarImageAdded = "Resim Eklendi.";
+        public static string CarImageUpdated = "Resim Güncellendi.";
+        public static string CarImageDeleted = "Resim Silindi.";
+        public static string CarImageLimitExceeded = "Resim Yüklenemedi Adet Sınırı Aşıldı.";
     }
 }

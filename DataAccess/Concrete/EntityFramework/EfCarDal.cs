@@ -20,8 +20,54 @@ namespace DataAccess.Concrete.EntityFramework
                     {
                         CarId = ca.Id,
                         CarName = ca.Description,
+                        BrandId = br.Id,
                         DailyPrice = ca.DailyPrice,
                         BrandName = br.Name,
+                        ColorId = co.Id,
+                        ColorName = co.Name
+                    }).ToList();
+                return result.ToList();
+            }
+        }
+
+        public List<CarDetailDto> GetCarDetailsBrandId(int brandId)
+        {
+            using (RentCarContext context = new RentCarContext())
+            {
+                var result = (from ca in context.Cars
+                    join co in context.Colors on ca.ColorId equals co.Id
+                    join br in context.Brands on ca.BrandId equals br.Id
+                    where ca.BrandId == brandId
+                              select new CarDetailDto
+                    {
+                        CarId = ca.Id,
+                        CarName = ca.Description,
+                        BrandId = br.Id,
+                        DailyPrice = ca.DailyPrice,
+                        BrandName = br.Name,
+                        ColorId = co.Id,
+                        ColorName = co.Name
+                    }).ToList();
+                return result.ToList();
+            }
+        }
+
+        public List<CarDetailDto> GetCarDetailsColorId(int colorId)
+        {
+            using (RentCarContext context = new RentCarContext())
+            {
+                var result = (from ca in context.Cars
+                    join co in context.Colors on ca.ColorId equals co.Id
+                    join br in context.Brands on ca.BrandId equals br.Id
+                    where ca.ColorId == colorId
+                              select new CarDetailDto
+                    {
+                        CarId = ca.Id,
+                        CarName = ca.Description,
+                        BrandId = br.Id,
+                        DailyPrice = ca.DailyPrice,
+                        BrandName = br.Name,
+                        ColorId = co.Id,
                         ColorName = co.Name
                     }).ToList();
                 return result.ToList();
