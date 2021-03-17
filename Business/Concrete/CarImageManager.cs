@@ -7,7 +7,6 @@ using DataAccess.Abstract;
 using Entities.Concrete;
 using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
 
 namespace Business.Concrete
 {
@@ -28,9 +27,9 @@ namespace Business.Concrete
         public IDataResult<List<CarImage>> GetImagesByCarId(int carId)
         {
             var results = _carImageDal.GetAll(c => c.CarId == carId);
-            if (results != null)
+            if (results == null)
             {
-                CarImage defaultImage = new CarImage {  CarId = carId, ImagePath = "rental.jpg" };
+                CarImage defaultImage = new CarImage { CarId = carId, ImagePath = "rental.jpg" };
                 results.Add(defaultImage);
             }
             return new SuccessDataResult<List<CarImage>>(results, Messages.CarImageListed);
@@ -46,7 +45,7 @@ namespace Business.Concrete
             var result = CheckCarImageCountLimit(carImage, 5);
             if (!result.Success) return new ErrorResult(result.Message);
 
-            carImage.ImagePath = FileHelper.Add(file);
+            carImage.ImagePath = FileHelper.AddCarImage(file);
             if (carImage.ImagePath == null) return new ErrorResult();
 
             _carImageDal.Add(carImage);
@@ -56,15 +55,15 @@ namespace Business.Concrete
         public IResult Update(IFormFile file, CarImage carImage)
         {
             carImage = _carImageDal.Get(c => c.Id == carImage.Id);
-            carImage.ImagePath = FileHelper.Update(_carImageDal.Get(p => p.Id == carImage.Id).ImagePath, file);
+            carImage.ImagePath = FileHelper.UpdateCarImage(_carImageDal.Get(p => p.Id == carImage.Id).ImagePath, file);
             _carImageDal.Update(carImage);
             return new SuccessResult(Messages.CarImageUpdated);
         }
 
-        public IResult Delete(CarImage carImage)
+        public IResult Delete(int imgId)
         {
-            carImage = _carImageDal.Get(c => c.Id == carImage.Id);
-            FileHelper.Delete(carImage.ImagePath);
+            CarImage carImage = _carImageDal.Get(c => c.Id == imgId);
+            FileHelper.DeleteCarImage(carImage.ImagePath);
             _carImageDal.Delete(carImage);
             return new SuccessResult(Messages.CarImageDeleted);
         }
