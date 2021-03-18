@@ -9,6 +9,7 @@ namespace Core.Utilities.Helper
     {
         private static string carImagePath = Environment.CurrentDirectory + @"\Uploads\CarImages";
         public static string carNewImageName = "";
+        public static string[] acceptImageExtension = { ".jpg", ".jpeg", ".png", ".gif" };
 
         public static string CarAdd(IFormFile file)
         {
@@ -36,10 +37,16 @@ namespace Core.Utilities.Helper
             FileInfo ff = new FileInfo(file.FileName);
             string fileExtension = ff.Extension;
             //Extension Control
-
-            carNewImageName = Guid.NewGuid() + fileExtension;
-            string result = $@"{carImagePath}\{carNewImageName}";
-            return result;
+            foreach (var item in acceptImageExtension)
+            {
+                if (item == ff.Extension)
+                {
+                    carNewImageName = Guid.NewGuid().ToString("N") + fileExtension;
+                    string result = $@"{carImagePath}\{carNewImageName}";
+                    return result;
+                }
+            }
+            return null;
         }
     }
 }
