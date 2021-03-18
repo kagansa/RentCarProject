@@ -45,8 +45,8 @@ namespace Business.Concrete
             var result = CheckCarImageCountLimit(carImage, 5);
             if (!result.Success) return new ErrorResult(result.Message);
 
-            carImage.ImagePath = FileHelper.AddCarImage(file);
-            if (carImage.ImagePath == null) return new ErrorResult();
+            carImage.ImagePath = ImageFileHelper.CarAdd(file);
+            if (carImage.ImagePath.Length < 0) return new ErrorResult();
 
             _carImageDal.Add(carImage);
             return new SuccessResult(Messages.CarImageAdded);
@@ -55,7 +55,9 @@ namespace Business.Concrete
         public IResult Update(IFormFile file, CarImage carImage)
         {
             carImage = _carImageDal.Get(c => c.Id == carImage.Id);
-            carImage.ImagePath = FileHelper.UpdateCarImage(_carImageDal.Get(p => p.Id == carImage.Id).ImagePath, file);
+            carImage.ImagePath = ImageFileHelper.CarUpdate(_carImageDal.Get(p => p.Id == carImage.Id).ImagePath, file);
+            if (carImage.ImagePath.Length < 0) return new ErrorResult();
+
             _carImageDal.Update(carImage);
             return new SuccessResult(Messages.CarImageUpdated);
         }
@@ -63,7 +65,7 @@ namespace Business.Concrete
         public IResult Delete(int imgId)
         {
             CarImage carImage = _carImageDal.Get(c => c.Id == imgId);
-            FileHelper.DeleteCarImage(carImage.ImagePath);
+            ImageFileHelper.CarDelete(carImage.ImagePath);
             _carImageDal.Delete(carImage);
             return new SuccessResult(Messages.CarImageDeleted);
         }
