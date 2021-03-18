@@ -8,8 +8,7 @@ namespace Core.Utilities.Helper
 {
     public class FileHelper
     {
-       
-        public static string Add(IFormFile file,string savePath)
+        public static string Add(IFormFile file, string savePath)
         {
             var sourcepath = Path.GetTempFileName();
             if (file.Length > 0)
@@ -19,7 +18,7 @@ namespace Core.Utilities.Helper
                     file.CopyTo(uploading);
                 }
             }
-            
+
             File.Move(sourcepath, savePath);
             return savePath;
         }
@@ -38,7 +37,7 @@ namespace Core.Utilities.Helper
             return new SuccessResult();
         }
 
-        public static string Update(string sourcePath,string savePath, IFormFile file)
+        public static string Update(string sourcePath, string savePath, IFormFile file)
         {
             if (sourcePath.Length > 0)
             {

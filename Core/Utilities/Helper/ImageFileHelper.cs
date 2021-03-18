@@ -7,23 +7,25 @@ namespace Core.Utilities.Helper
 {
     public class ImageFileHelper : FileHelper
     {
-        private static string carImagePath = Environment.CurrentDirectory + @"\Uploads\CarImages";
-        public static string carNewImageName = "";
-        public static string[] acceptImageExtension = { ".jpg", ".jpeg", ".png", ".gif" };
+        private static string _carImagePath = Environment.CurrentDirectory + @"\Uploads\CarImages";
+        public static string CarNewImageName = "";
+        public static string[] AcceptImageExtension = { ".jpg", ".jpeg", ".png", ".gif" };
 
         public static string CarAdd(IFormFile file)
         {
             string savePath = CarImageNewName(file);
+            if (savePath == null) return null;
             Add(file, savePath);
-            return carNewImageName;
+            return CarNewImageName;
         }
 
         public static string CarUpdate(string sourcePath, IFormFile file)
         {
             string savePath = CarImageNewName(file);
-            sourcePath = carImagePath + @"\" + sourcePath;
-            var result = Update(sourcePath, savePath, file);
-            return carNewImageName;
+            if (savePath == null) return null;
+            sourcePath = $@"{_carImagePath}\{sourcePath}";
+            Update(sourcePath, savePath, file);
+            return CarNewImageName;
         }
 
         public static IResult CarDelete(string sourcePath)
@@ -37,12 +39,12 @@ namespace Core.Utilities.Helper
             FileInfo ff = new FileInfo(file.FileName);
             string fileExtension = ff.Extension;
             //Extension Control
-            foreach (var item in acceptImageExtension)
+            foreach (var item in AcceptImageExtension)
             {
                 if (item == ff.Extension)
                 {
-                    carNewImageName = Guid.NewGuid().ToString("N") + fileExtension;
-                    string result = $@"{carImagePath}\{carNewImageName}";
+                    CarNewImageName = Guid.NewGuid().ToString("N") + fileExtension;
+                    string result = $@"{_carImagePath}\{CarNewImageName}";
                     return result;
                 }
             }
