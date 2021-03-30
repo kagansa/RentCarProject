@@ -46,5 +46,8 @@
         public static string CarImageUpdated = "Resim Güncellendi.";
         public static string CarImageDeleted = "Resim Silindi.";
         public static string CarImageLimitExceeded = "Resim Yüklenemedi Adet Sınırı Aşıldı.";
+
+        public static string PaymentSuccess = "Ödeme Başarılı";
+        public static string PaymentError = "Ödeme Alınamadı";
     }
 }

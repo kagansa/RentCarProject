@@ -9,6 +9,7 @@ namespace Entities.Concrete
         public int CarId { get; set; }
         public int CustomerId { get; set; }
         public DateTime RentDate { get; set; } = DateTime.Now.Date;
+        public DateTime? RentEndDate { get; set; } = null;
         public DateTime? ReturnDate { get; set; } = null;
     }
 }

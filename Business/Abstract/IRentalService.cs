@@ -15,6 +15,8 @@ namespace Business.Abstract
 
         IResult Add(Rental rental);
 
+        IResult RentalCarControl(int CarId);
+
         IResult Update(Rental rental);
 
         IResult Delete(Rental rental);

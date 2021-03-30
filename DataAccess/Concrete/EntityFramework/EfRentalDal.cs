@@ -29,6 +29,7 @@ namespace DataAccess.Concrete.EntityFramework
                         FirstName = us.FirstName,
                         LastName = us.LastName,
                         RentDate = re.RentDate,
+                        RentEndDate = re.RentEndDate,
                         ReturnDate = re.ReturnDate
                     }).ToList();
                 return result.ToList();

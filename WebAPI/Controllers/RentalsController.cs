@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Entities.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
@@ -23,6 +24,20 @@ namespace WebAPI.Controllers
                 return Ok(result);
             }
             return BadRequest(result);
+        }
+
+        [HttpGet("getcarcontrol")]
+        public IActionResult GetCarControl(int carId)
+        {
+            var result = _rentalService.RentalCarControl(carId);
+            return Ok(result);
+        }
+
+        [HttpPost("addrental")]
+        public IActionResult AddRental(Rental rental)
+        {
+            var result = _rentalService.Add(rental);
+            return Ok(result);
         }
     }
 }
