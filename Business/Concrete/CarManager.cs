@@ -6,6 +6,8 @@ using DataAccess.Abstract;
 using Entities.Concrete;
 using System.Collections.Generic;
 using System.Linq;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Entities.DTOs;
 
 namespace Business.Concrete
@@ -64,9 +66,10 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Car>>(_CarDal.GetAll(c => c.ColorId == colorId), Messages.CarListed);
         }
 
+        [ValidationAspect(typeof(CarValidator))]
         public IResult Add(Car car)
         {
-            if (car.Description.Length > 2 && car.DailyPrice > 0)
+            if (car.Description.Length < 2 && car.DailyPrice < 0)
             {
                 return new ErrorResult();
             }

@@ -41,11 +41,14 @@ namespace WebAPI.Controllers
         public IActionResult Add(Brand brand)
         {
             var result = _brandService.Add(brand);
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result);
+             return Ok(result);
+        }
+
+        [HttpPost("update")]
+        public IActionResult Update(Brand brand)
+        {
+            var result = _brandService.Update(brand);
+            return Ok(result);
         }
     }
 }

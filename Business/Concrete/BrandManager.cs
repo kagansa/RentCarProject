@@ -31,15 +31,18 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<Brand>(_brandDal.Get(c => c.Id == Id), Messages.BrandListed);
         }
-        [SecuredOperation("brand.add,admin")]
+       
         [ValidationAspect(typeof(BrandValidator))]
         [CacheRemoveAspect("IBrandService.Get")]
+        [CacheRemoveAspect("IBrandService.GetAll")]
         public IResult Add(Brand brand)
         {
             _brandDal.Add(brand);
             return new SuccessResult(Messages.BrandAdded);
         }
 
+        [CacheRemoveAspect("IBrandService.Get")]
+        [CacheRemoveAspect("IBrandService.GetAll")]
         public IResult Update(Brand brand)
         {
             _brandDal.Update(brand);
