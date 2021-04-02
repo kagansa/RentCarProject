@@ -32,7 +32,7 @@ namespace Business.Concrete
             _customerDal.Add(customer);
             return new SuccessResult(Messages.CustomerAdded);
         }
-
+        
         public IResult Update(Customer customer)
         {
             _customerDal.Update(customer);

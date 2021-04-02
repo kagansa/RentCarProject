@@ -49,5 +49,10 @@
 
         public static string PaymentSuccess = "Ödeme Başarılı";
         public static string PaymentError = "Ödeme Alınamadı";
+
+        public static string CreditCardAdded = "Kredi Kartı Kayıt Edildi.";
+
+        public static string FindeksSuccess = "Findeks Puanı Yeterli.";
+        public static string FindeksError = "Findeks Puanı Yetersiz";
     }
 }

@@ -1,4 +1,5 @@
-﻿using Core.Entities;
+﻿using Castle.DynamicProxy.Generators.Emitters;
+using Core.Entities;
 
 namespace Entities.Concrete
 {
@@ -10,5 +11,6 @@ namespace Entities.Concrete
         public decimal DailyPrice { get; set; }
         public string Description { get; set; }
         public string ModelYear { get; set; }
+        public int MinFindeksScore { get; set; }
     }
 }

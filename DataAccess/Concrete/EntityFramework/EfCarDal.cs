@@ -25,7 +25,8 @@ namespace DataAccess.Concrete.EntityFramework
                                   BrandName = br.Name,
                                   ColorId = co.Id,
                                   ColorName = co.Name,
-                                  ModelYear = ca.ModelYear
+                                  ModelYear = ca.ModelYear,
+                                  MinFindeksScore = ca.MinFindeksScore
                               }).ToList();
                 return result.ToList();
             }
@@ -48,7 +49,8 @@ namespace DataAccess.Concrete.EntityFramework
                         BrandName = br.Name,
                         ColorId = co.Id,
                         ColorName = co.Name,
-                        ModelYear = ca.ModelYear
+                        ModelYear = ca.ModelYear,
+                        MinFindeksScore = ca.MinFindeksScore
                     }).ToList();
                 return result.ToList();
             }
@@ -71,7 +73,8 @@ namespace DataAccess.Concrete.EntityFramework
                                   BrandName = br.Name,
                                   ColorId = co.Id,
                                   ColorName = co.Name,
-                                  ModelYear = ca.ModelYear
+                                  ModelYear = ca.ModelYear,
+                                  MinFindeksScore = ca.MinFindeksScore
                               }).ToList();
                 return result.ToList();
             }
@@ -94,7 +97,8 @@ namespace DataAccess.Concrete.EntityFramework
                                   BrandName = br.Name,
                                   ColorId = co.Id,
                                   ColorName = co.Name,
-                                  ModelYear = ca.ModelYear
+                                  ModelYear = ca.ModelYear,
+                                  MinFindeksScore = ca.MinFindeksScore
                               }).ToList();
                 return result.ToList();
             }
@@ -117,7 +121,8 @@ namespace DataAccess.Concrete.EntityFramework
                         BrandName = br.Name,
                         ColorId = co.Id,
                         ColorName = co.Name,
-                        ModelYear = ca.ModelYear
+                        ModelYear = ca.ModelYear,
+                        MinFindeksScore = ca.MinFindeksScore
                     }).ToList();
                 return result.ToList();
             }
