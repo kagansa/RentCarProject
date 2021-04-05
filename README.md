@@ -6,7 +6,7 @@
 # RentCarProject
 
 ## 📌 C# Bootcamp BackEnd
-
+Kurumsal, Katmanlı Mimari yapısı kullanılarak **SOLID** kuralları dahilinde oluşturulmuş, C# dili ile yazılmış Araba kiralama fikri üzerinden ilerlenmştir.
 
 ## 📚 Teknojiler
 
@@ -18,8 +18,6 @@
 <code><img height="75" src="https://miro.medium.com/max/3000/1*TpbxEQy4ckB-g31PwUQPlg.png"></code>
 <code><img height="75" src="https://avatars.githubusercontent.com/u/2918581?s=280&v=4"></code>
 <code><img height="75" src="https://angular.io/assets/images/logos/angular/angular.svg"></code>
-
-Kurumsal, Katmanlı Mimari yapısı kullanılarak **SOLID** kuralları dahilinde oluşturulmuş, C# dili ile yazılmış Araba kiralama fikri üzerinden ilerlenmştir.
 
 ### Katmanlar
 
