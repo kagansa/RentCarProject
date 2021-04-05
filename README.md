@@ -13,6 +13,9 @@
 <code><img height="75" src="https://seeklogo.com/images/M/microsoft-sql-server-logo-96AF49E2B3-seeklogo.com.png"></code>
 <code><img height="75" src="https://camo.githubusercontent.com/8d56e87edf99e89bfc457cd62462e0b7aae19e6b197b1df5c542d474d8d76f81/68747470733a2f2f646576656c6f7065722e6665646f726170726f6a6563742e6f72672f7374617469632f6c6f676f2f6373686172702e706e67"></code>
 <code><img height="75" src="https://miro.medium.com/max/1940/1*b5m0MjASf4JbwDnhBTElZQ.png"></code>
+<code><img height="75" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrwOikB7wL1Q3WL08ly2iBxr1vqBOwKWxymBCu1p3lWP8LHkGgEJNQxQWxcKrGYS4xCr0&usqp=CAU"></code>
+<code><img height="75" src="https://autofaccn.readthedocs.io/en/latest/_images/logo.png"></code>
+<code><img height="75" src="https://raw.githubusercontent.com/JeremySkinner/FluentValidation/gh-pages/assets/images/logo/fluent-validation-logo.png"></code>
 <code><img height="75" src="https://miro.medium.com/max/3000/1*TpbxEQy4ckB-g31PwUQPlg.png"></code>
 <code><img height="75" src="https://angular.io/assets/images/logos/angular/angular.svg"></code>
 
